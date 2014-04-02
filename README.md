@@ -1573,7 +1573,7 @@
     $('.sidebar > ul').hide();
 
     // good
-    $sidebar.find('ul');
+    $sidebar.find('ul').hide();
     ```
 
 **[⬆ back to top](#TOC)**
