@@ -665,14 +665,14 @@
 
 ## <a name='blocks'>Blocks</a>
 
-- Use braces with all multi-line blocks.
+- Always use curly braces around blocks in loops and conditionals:
 
     ```javascript
     // bad
     if (test)
         return false;
 
-    // good
+    // bad
     if (test) return false;
 
     // good
