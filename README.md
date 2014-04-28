@@ -1085,16 +1085,16 @@
         name: 'Bob Parr'
     });
     ```
-- Use capitals for abbreviations in the name
+- Use a single capital for abbreviations in the name
 
     ```javascript
     // bad
-    var isIe = !!window.attachEvent;
-    var useUsd = true;
-
-    // good
     var isIE = !!window.attachEvent;
     var useUSD = true;
+
+    // good
+    var isIe = !!window.attachEvent;
+    var useUsd = true;
     ```
 
 - Use PascalCase when naming constructors or classes
