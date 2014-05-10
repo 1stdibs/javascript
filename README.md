@@ -432,40 +432,43 @@
     // bad
     var items = getItems(),
         goSportsTeam = true,
-        dragonball = 'z';
+        dragonBall = 'z';
 
     // good
     var items = getItems();
     var goSportsTeam = true;
-    var dragonball = 'z';
+    var dragonBall = 'z';
     ```
 
-- Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+- Declare unassigned variables first. This is helpful when later on you might need to assign those variables a value from within a [function expression](#functions).  This also helps keep track of those variables that are apart of that scope.
 
     ```javascript
     // bad
-    var i;
-    var len; 
-    var dragonball;
-    var items = getItems(),
+    var items = getItems();
     var goSportsTeam = true;
+    var dragonBall;
+    var length;
+    var i;
 
     // bad
     var i; 
     var items = getItems();
-    var dragonball;
+    var dragonBall;
     var goSportsTeam = true;
     var len;
 
     // good
+    var i;
+    var len; 
+    var dragonBall;
+    var isItADragonBall = function () {
+        dragonBall = 'z';
+    };
     var items = getItems();
     var goSportsTeam = true;
-    var dragonball;
-    var length;
-    var i;
     ```
 
-- Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
+- Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment [hoisting related issues](#hoisting).
 
     ```javascript
     // bad
