@@ -440,32 +440,53 @@
     var dragonBall = 'z';
     ```
 
-- Declare unassigned variables first. This is helpful when later on you might need to assign those variables a value from within a [function expression](#functions).  This also helps keep track of those variables that are apart of that scope.
+- Declare unassigned variables last.  Also, do not assign variables with any blocks (ie. JSON, functions, etc).  Leave them
+  unassigned then assign them later in the scope.
+  This makes it easier to see which variables are in scope.  If you have large blocks within the variable declarations,
+  those unassigned variables can be easily lost.
 
     ```javascript
     // bad
-    var items = getItems();
-    var goSportsTeam = true;
-    var dragonBall;
+    var i;
+    var isItInSpringfield;
+    var characters = getCharacters();
+    var simpsons;
+    var isItOnFox = true;
+    var length;
+
+    // bad
+    var characters = getCharacters();
+    var isItOnFox = true;
+    var simpsons = {
+        bart: 'I am so smart! S-M-R-T!',
+        homer: "D'oh!",
+        marge: 'Hmm...',
+        lisa: 'Quit it, Bart!',
+        maggie: '(pacificer)'
+    };
+    var isItInSpringfield;
     var length;
     var i;
 
-    // bad
-    var i; 
-    var items = getItems();
-    var dragonBall;
-    var goSportsTeam = true;
-    var len;
-
     // good
+    var characters = getCharacters();
+    var isItOnFox = true;
+    var isItInSpringfield;
+    var simpsons;
+    var length;
     var i;
-    var len; 
-    var dragonBall;
-    var isItADragonBall = function () {
-        dragonBall = 'z';
+
+    isItInSpringfield = function () {
+        return true;
     };
-    var items = getItems();
-    var goSportsTeam = true;
+
+    simpsons = {
+        bart: 'I am so smart! S-M-R-T!',
+        homer: "D'oh!",
+        marge: 'Hmm...',
+        lisa: 'Quit it, Bart!',
+        maggie: '(pacificer)'
+    };
     ```
 
 - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment [hoisting related issues](#hoisting).
