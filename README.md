@@ -432,40 +432,64 @@
     // bad
     var items = getItems(),
         goSportsTeam = true,
-        dragonball = 'z';
+        dragonBall = 'z';
 
     // good
     var items = getItems();
     var goSportsTeam = true;
-    var dragonball = 'z';
+    var dragonBall = 'z';
     ```
 
-- Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+- Declare unassigned variables last.  Also, do not assign variables with any blocks (ie. JSON, functions, etc).  Leave them
+  unassigned then assign them later in the scope.
+  This makes it easier to see which variables are in scope.  If you have large blocks within the variable declarations,
+  those unassigned variables can be easily lost.
 
     ```javascript
     // bad
     var i;
-    var len; 
-    var dragonball;
-    var items = getItems(),
-    var goSportsTeam = true;
+    var isItInSpringfield;
+    var characters = getCharacters();
+    var simpsons;
+    var isItOnFox = true;
+    var length;
 
     // bad
-    var i; 
-    var items = getItems();
-    var dragonball;
-    var goSportsTeam = true;
-    var len;
-
-    // good
-    var items = getItems();
-    var goSportsTeam = true;
-    var dragonball;
+    var characters = getCharacters();
+    var isItOnFox = true;
+    var simpsons = {
+        bart: 'I am so smart! S-M-R-T!',
+        homer: "D'oh!",
+        marge: 'Hmm...',
+        lisa: 'Quit it, Bart!',
+        maggie: '(pacificer)'
+    };
+    var isItInSpringfield;
     var length;
     var i;
+
+    // good
+    var characters = getCharacters();
+    var isItOnFox = true;
+    var isItInSpringfield;
+    var simpsons;
+    var length;
+    var i;
+
+    isItInSpringfield = function () {
+        return true;
+    };
+
+    simpsons = {
+        bart: 'I am so smart! S-M-R-T!',
+        homer: "D'oh!",
+        marge: 'Hmm...',
+        lisa: 'Quit it, Bart!',
+        maggie: '(pacificer)'
+    };
     ```
 
-- Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
+- Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment [hoisting related issues](#hoisting).
 
     ```javascript
     // bad
