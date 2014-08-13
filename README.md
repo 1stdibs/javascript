@@ -1484,7 +1484,11 @@ When you define a module that might have circular dependencies, you should follo
 3. Load remaining dependencies
 4. Define module static/instance properties
 
-- **Basic objects**: if your module is an object with a straightforward set of properties, you can follow this convention:
+####Examples
+
+Below are examples of the main module conventions we would like everyone to follow:
+
+**Basic objects**: if your module is an object with a straightforward set of properties, you can follow this convention:
 
 foo.js (note that this module does not refer to itself anywhere, so no local var is necessary)
 ```javascript
@@ -1534,7 +1538,7 @@ var bar = module.exports = {
 };
 ```
 
-- **Constructor function modules**: if your module is a constructor function, you should try to use the following convention:
+**Constructor function modules**: if your module is a constructor function, you should try to use the following convention:
 
 MyWidget.js
 
@@ -1544,6 +1548,7 @@ MyWidget.js
 
 // Dependencies, if any
 var foo = require('foo');
+var _ = require('underscore');
 
 // Local Vars, if any
 var baz;
@@ -1577,7 +1582,7 @@ _.extend(MyWidget, {
 });
 ```
 
-- **Backbone Models and Collections**: if your module is a Backbone.Model or Backbone.Collection constructor function, you should try to follow the next example:
+**Backbone Models and Collections**: if your module is a Backbone.Model or Backbone.Collection constructor function, you should try to follow the next example:
 
 MyModel.js
 
@@ -1648,7 +1653,7 @@ _.extend(MyModel, {
 
 ```
 
-- **Backbone Views**: if your module is a Backbone.View constructor function, you should try to follow the next example:
+**Backbone Views**: if your module is a Backbone.View constructor function, you should try to follow the next example:
 
 ```javascript
 
