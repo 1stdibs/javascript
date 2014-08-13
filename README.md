@@ -1474,7 +1474,7 @@ at the module for the first time to be able to read and understand it, because t
 When you define a module, it's important that we organize the modules consistently, so your module should follow this basic outline:
 
 1. Declare/load dependencies (i.e. require statements)
-2. Declare local vars, if any (variables that are only available within the scope of the module
+2. Declare local vars, if any (variables that are only available within the scope of the module)
 3. Define module.exports and static/instance properties
 
 When you define a module that might have circular dependencies, you should follow this outline instead
