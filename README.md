@@ -1562,7 +1562,7 @@ var MyWidget = module.exports = function (foo) {
 };
 
 // Instance Properties (do not put objects on the prototype unless it's read-only)
-MyWidget.prototype = {
+_.extend(MyWidget.prototype, {
     someStr: 'String shared on every instance'
     /**
      * @param {object} thing
