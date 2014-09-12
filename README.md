@@ -1615,7 +1615,7 @@ _.extend(MyModel.prototype, {
     }],
 
     /**
-     * @param  {string}
+     * @param  {string} param
      * @return {boolean}
      */
     bar: function (param) {
