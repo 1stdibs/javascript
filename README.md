@@ -23,6 +23,7 @@
 1. [Constructors](#constructors)
 1. [Events](#events)
 1. [Modules](#modules)
+1. [Module Documentation](#module-documentation)
 1. [UMD Conventions](#umd)
 1. [jQuery](#jquery)
 1. [ES5 Compatibility](#es5)
@@ -1691,6 +1692,149 @@ var MyView = module.exports = MyParentView.extend({
 });
 
 ```
+
+**[⬆ back to top](#TOC)**
+
+## <a href='module-documentation'>Module Documentation</a>
+
+In order to be able to generate JSDoc pages to describe our modules, it's important to correctly document your modules.
+
+** Type Specifiers **
+Type specifiers are the contents of the braces sometimes next to @param, @property, @return annotations (such as "{string}"). Please make sure it follows the patterns below:
+
+* Simple types : {number}, {string}, {boolean}
+* Plain objects (i.e. simple objects declared with '{}' ) : {object}
+* Instances of another pseudoclass use the name of the pseudoclass as described by the '@class' annotation : {SoaModel}
+* Arrays of one of the above: {SoaModel[]}, {object[]}, {string[]}
+* Multiple possible types for a single param or return value should be separated by a pipe "|" : {string|number}
+* An unknown return type should use an asterisk '*' (meaning 'mixed') : {*}
+* A jQuery promise should use {$.Deferred.promise} as the type specifier
+* An html element should use 'HTMLElement' as the type specifier. A jQuery element is just an instance of jQuery, so you can use {$}
+
+** Backbone BaseView / FormView / SoaModel / SoaCollection extensions and other Pseudoclass modules **
+
+* Add @class and @extends annotations directly above the definition of the module:
+
+```javascript
+    /**
+     * @class MyModel
+     * @extends SoaModel
+     */
+    var MyModel = SoaModel.extend();
+```
+
+* For public properties add @property tags above the module definition as well
+
+ ```javascript
+     /**
+      * @class MyView
+      * @extends BaseView
+      * @property {string} foo Optional description of foo
+      * @property {object} thing Optional description of thing
+      * @property {string} thing.bar Optional description of property 'bar' of property 'thing
+      */
+     var MyView = BaseView.extend();
+ ```
+
+* If you have a parameter to the initialize or constructor function, list it with the module definition with the @param tag
+
+ ```javascript
+     /**
+      * @class MyView
+      * @extends BaseView
+      * @param {object} options
+      * @param {string} options.fieldName Description of required param (params without square braces are required)
+      * @param {boolean} [options.someFlag=false] Description of 'someFlag' option with a default value of false.
+      */
+     var MyView = BaseView.extend();
+ ```
+
+* If your module uses a mixin, add an @mixes tag with the name of the mixin. See the section on documenting mixins below for more on that.
+
+```javascript
+     /**
+      * @class MyView
+      * @extends BaseView
+      * @mixes fooMixin
+      */
+     var MyView = BaseView.extend().marinate(fooMixin);
+```
+
+* For public / protected methods add @param and @return tags directly above the method. You can add descriptions for the param and return if it is unclear what they should be. Note the type in braces '{' next to the annotation.
+
+```javascript
+    /**
+     * @param {string} foo Description of foo (descriptions for tags optional)
+     * @param {number} [baz] Optional parameter example. Parameters with square braces are optional
+     * @return {SoaModel} Description of the return value (descriptions are optional)
+     */
+    myMethod: function (foo) {
+        // do stuff
+        return bar;
+    }
+```
+
+* For protected methods, please add the '@protected' annotation:
+
+```javascript
+    /**
+     * @protected
+     * @return {boolean}
+     */
+    myProtectedMethod: function () {
+        // do stuff
+        return bar;
+    }
+```
+
+* For private methods, prefix your method with an '_', and then only document it with '//' comments. That way they aren't added to the public documentation for these classes.
+
+```javascript
+   // Description of private method
+   _myPrivateMethod: function () {
+        // do stuff
+   }
+```
+
+* For deprecated methods/properties add an '@deprecated' tag. Use these for methods you do not want to use anymore.
+
+** Mixin Modules **
+
+* If your module is a mixin, document it with a @mixin tag, right above the module definition:
+
+```javascript
+/**
+ * @mixin fooMixin
+ */
+module.exports = {
+    foo: function () {
+        // Do stuff
+    }
+}
+```
+
+** Plain object literal modules **
+
+* Use the @module tag, as seen below, with a type tag.
+
+```javascript
+// In someModule.js
+/**
+ * @module:someModule
+ * @property {string} propertyName
+ */
+module.exports = {
+    /**
+     * @param {string} myParam
+     * @return {boolean} myBoolean
+     */
+    methodName: function (myParam) {
+
+    }
+}
+```
+
+* **Note**: plain object literal modules still use the same public/private method documentation (they don't have protected methods) as described in the section on Pseudoclass documentation
 
 **[⬆ back to top](#TOC)**
 
