@@ -1699,7 +1699,7 @@ var MyView = module.exports = MyParentView.extend({
 
 In order to be able to generate JSDoc pages to describe our modules, it's important to correctly document your modules.
 
-** Type Specifiers **
+**Type Specifiers**
 Type specifiers are the contents of the braces sometimes next to @param, @property, @return annotations (such as "{string}"). Please make sure it follows the patterns below:
 
 * Simple types : {number}, {string}, {boolean}
@@ -1711,7 +1711,7 @@ Type specifiers are the contents of the braces sometimes next to @param, @proper
 * A jQuery promise should use {$.Deferred.promise} as the type specifier
 * An html element should use 'HTMLElement' as the type specifier. A jQuery element is just an instance of jQuery, so you can use {$}
 
-** Backbone BaseView / FormView / SoaModel / SoaCollection extensions and other Pseudoclass modules **
+**Backbone BaseView / FormView / SoaModel / SoaCollection extensions and other Pseudoclass modules**
 
 * Add @class and @extends annotations directly above the definition of the module:
 
@@ -1731,7 +1731,8 @@ Type specifiers are the contents of the braces sometimes next to @param, @proper
       * @extends BaseView
       * @property {string} foo Optional description of foo
       * @property {object} thing Optional description of thing
-      * @property {string} thing.bar Optional description of property 'bar' of property 'thing
+      * @property {string} thing.bar
+      *     Optional description of property 'bar' of property 'thing
       */
      var MyView = BaseView.extend();
  ```
@@ -1743,8 +1744,10 @@ Type specifiers are the contents of the braces sometimes next to @param, @proper
       * @class MyView
       * @extends BaseView
       * @param {object} options
-      * @param {string} options.fieldName Description of required param (params without square braces are required)
-      * @param {boolean} [options.someFlag=false] Description of 'someFlag' option with a default value of false.
+      * @param {string} options.fieldName
+      *     Description of required param (params without square braces are required)
+      * @param {boolean} [options.someFlag=false]
+      *     Description of 'someFlag' option with a default value of false.
       */
      var MyView = BaseView.extend();
  ```
@@ -1765,7 +1768,8 @@ Type specifiers are the contents of the braces sometimes next to @param, @proper
 ```javascript
     /**
      * @param {string} foo Description of foo (descriptions for tags optional)
-     * @param {number} [baz] Optional parameter example. Parameters with square braces are optional
+     * @param {number} [baz]
+     *     Optional parameter example. Parameters with square braces are optional
      * @return {SoaModel} Description of the return value (descriptions are optional)
      */
     myMethod: function (foo) {
@@ -1798,7 +1802,7 @@ Type specifiers are the contents of the braces sometimes next to @param, @proper
 
 * For deprecated methods/properties add an '@deprecated' tag. Use these for methods you do not want to use anymore.
 
-** Mixin Modules **
+**Mixin Modules**
 
 * If your module is a mixin, document it with a @mixin tag, right above the module definition:
 
@@ -1813,7 +1817,7 @@ module.exports = {
 }
 ```
 
-** Plain object literal modules **
+**Plain object literal modules**
 
 * Use the @module tag, as seen below, with a type tag.
 
