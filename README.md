@@ -1707,7 +1707,7 @@ Type specifiers are the contents of the braces sometimes next to @param, @proper
 * Instances of another pseudoclass use the name of the pseudoclass as described by the '@class' annotation : {SoaModel}
 * Arrays of one of the above: {SoaModel[]}, {object[]}, {string[]}
 * Multiple possible types for a single param or return value should be separated by a pipe "|" : {string|number}
-* An unknown return type should use an asterisk '*' (meaning 'mixed') : {*}
+* An unknown return type should use an asterisk '\*' (meaning 'mixed') : {\*}
 * A jQuery promise should use {$.Deferred.promise} as the type specifier
 * An html element should use 'HTMLElement' as the type specifier. A jQuery element is just an instance of jQuery, so you can use {$}
 
