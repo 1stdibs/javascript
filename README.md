@@ -1697,7 +1697,7 @@ var MyView = module.exports = MyParentView.extend({
 
 ## <a href='module-documentation'>Module Documentation</a>
 
-In order to be able to generate JSDoc pages to describe our modules, it's important to correctly document your modules.
+In order to be able to generate JSDoc pages to describe our modules, it's important to correctly document your modules. [Visit usejsdoc.org](http://usejsdoc.org/) to see all available tags and an overview of each.
 
 **Type Specifiers**
 Type specifiers are the contents of the braces sometimes next to @param, @property, @return annotations (such as "{string}"). Please make sure it follows the patterns below:
@@ -1713,7 +1713,7 @@ Type specifiers are the contents of the braces sometimes next to @param, @proper
 
 **Backbone BaseView / FormView / SoaModel / SoaCollection extensions and other Pseudoclass modules**
 
-* Add @class and @extends annotations directly above the definition of the module:
+* Add [@class](http://usejsdoc.org/tags-class.html) and [@extends](http://usejsdoc.org/tags-augments.html) annotations directly above the definition of the module:
 
 ```javascript
     /**
@@ -1723,7 +1723,7 @@ Type specifiers are the contents of the braces sometimes next to @param, @proper
     var MyModel = SoaModel.extend();
 ```
 
-* For public properties add @property tags above the module definition as well
+* For public properties add [@property](http://usejsdoc.org/tags-property.html) tags above the module definition as well
 
  ```javascript
      /**
@@ -1737,7 +1737,7 @@ Type specifiers are the contents of the braces sometimes next to @param, @proper
      var MyView = BaseView.extend();
  ```
 
-* If you have a parameter to the initialize or constructor function, list it with the module definition with the @param tag
+* If you have a parameter to the initialize or constructor function, list it with the module definition with the [@param](http://usejsdoc.org/tags-param.html) tag
 
  ```javascript
      /**
@@ -1752,7 +1752,7 @@ Type specifiers are the contents of the braces sometimes next to @param, @proper
      var MyView = BaseView.extend();
  ```
 
-* If your module uses a mixin, add an @mixes tag with the name of the mixin. See the section on documenting mixins below for more on that.
+* If your module uses a mixin, add an [@mixes](http://usejsdoc.org/tags-mixes.html) tag with the name of the mixin. See the section on documenting mixins below for more on that.
 
 ```javascript
      /**
@@ -1763,7 +1763,7 @@ Type specifiers are the contents of the braces sometimes next to @param, @proper
      var MyView = BaseView.extend().marinate(fooMixin);
 ```
 
-* For public / protected methods add @param and @return tags directly above the method. You can add descriptions for the param and return if it is unclear what they should be. Note the type in braces '{' next to the annotation.
+* For public / protected methods add @param and [@return]http://usejsdoc.org/tags-returns.html) tags directly above the method. You can add descriptions for the param and return if it is unclear what they should be.
 
 ```javascript
     /**
@@ -1778,7 +1778,7 @@ Type specifiers are the contents of the braces sometimes next to @param, @proper
     }
 ```
 
-* For protected methods, please add the '@protected' annotation:
+* For protected methods, please add the '[@protected](http://usejsdoc.org/tags-protected.html)' annotation:
 
 ```javascript
     /**
@@ -1800,11 +1800,11 @@ Type specifiers are the contents of the braces sometimes next to @param, @proper
    }
 ```
 
-* For deprecated methods/properties add an '@deprecated' tag. Use these for methods you do not want to use anymore.
+* For deprecated methods/properties add an '[@deprecated](http://usejsdoc.org/tags-deprecated.html)' tag. Use these for methods you do not want to use anymore.
 
 **Mixin Modules**
 
-* If your module is a mixin, document it with a @mixin tag, right above the module definition:
+* If your module is a mixin, document it with a [@mixin](http://usejsdoc.org/tags-mixin.html) tag, right above the module definition:
 
 ```javascript
 /**
@@ -1819,7 +1819,7 @@ module.exports = {
 
 **Plain object literal modules**
 
-* Use the @module tag, as seen below, with a type tag.
+* Use the [@module](http://usejsdoc.org/tags-module.html tag, as seen below, with a type tag.
 
 ```javascript
 // In someModule.js
