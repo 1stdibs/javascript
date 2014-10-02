@@ -1763,7 +1763,7 @@ Type specifiers are the contents of the braces sometimes next to @param, @proper
      var MyView = BaseView.extend().marinate(fooMixin);
 ```
 
-* For public / protected methods add @param and [@return]http://usejsdoc.org/tags-returns.html) tags directly above the method. You can add descriptions for the param and return if it is unclear what they should be.
+* For public / protected methods add @param and [@return](http://usejsdoc.org/tags-returns.html) tags directly above the method. You can add descriptions for the param and return if it is unclear what they should be.
 
 ```javascript
     /**
