@@ -1501,7 +1501,7 @@ var dep = require('dep');
 
 // Module Definition
 /**
- * @module foo The module name
+ * @module {object} foo The module name
  */
 module.exports = {
     foo: 1,
@@ -1529,7 +1529,7 @@ bar.js (note that this module refers to itself, so a local var 'bar' is used for
 // Dependencies, if any
 // Local vars, if any
 /**
- * @module bar The module name
+ * @module {object} bar The module name
  */
 var bar = module.exports = {
     myProperty: 'This is a test property',
@@ -1824,13 +1824,12 @@ module.exports = {
 ```javascript
 // In someModule.js
 /**
- * @module:someModule
+ * @module {object} someModule
  * @property {string} propertyName
  */
 module.exports = {
     /**
      * @param {string} myParam
-     * @return {boolean} myBoolean
      */
     methodName: function (myParam) {
 
