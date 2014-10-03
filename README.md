@@ -1819,7 +1819,7 @@ module.exports = {
 
 **Plain object literal modules**
 
-* Use the [@module](http://usejsdoc.org/tags-module.html tag, as seen below, with a type tag.
+* Use the [@module](http://usejsdoc.org/tags-module.html) tag, as seen below, with a type tag.
 
 ```javascript
 // In someModule.js
