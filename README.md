@@ -415,7 +415,7 @@
     var dragonBall = 'z';
     ```
 
-- Declare unassigned variables last.  Also, do not assign variables with any blocks (ie. JSON, functions, etc).  Leave them
+- Do not assign variables with any blocks (ie. JSON, functions, etc).  Leave them
   unassigned then assign them later in the scope.
   This makes it easier to see which variables are in scope.  If you have large blocks within the variable declarations,
   those unassigned variables can be easily lost.
