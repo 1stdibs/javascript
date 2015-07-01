@@ -304,6 +304,32 @@
     }
     ```
 
+- Never do nested ternaries.  Use an `if` block at that point.
+
+    ```javascript
+    // bad
+    var saying = isBart ? 'I am so smart! S-M-R-T!' : isHomer ? "D'oh!" :
+        isMarge ? 'Hmm...' : isLisa ? 'Quit it, Bart!' : 
+        isMaggie ? '(pacificer)' : ''
+
+    // good
+    var saying = '';
+    if (isBart) {
+        saying = 'I am so smart! S-M-R-T!';
+    } else if (isHomer) {
+        saying = "D'oh!"
+    } else if (isMarge) {
+        saying = 'Hmm...';
+    } else if (isLisa) {
+        saying = 'Quit it, Bart!';
+    } else if (isMaggie) {
+        saying = '(pacificer)'
+    }
+
+    // fine
+    var price = hasPrice ? 'Has Price' : 'No Price';
+    ```
+
 **[⬆ back to top](#TOC)**
 
 ## <a name="boolean-trap">Boolean Trap</a>
